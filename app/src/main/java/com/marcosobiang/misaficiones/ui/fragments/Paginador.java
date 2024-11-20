@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.marcosobiang.misaficiones.fr.aficiones.Comer;
 import com.marcosobiang.misaficiones.fr.aficiones.Dormir;
+import com.marcosobiang.misaficiones.fr.aficiones.Programar;
 
 public class Paginador extends FragmentPagerAdapter {
     private final Context context;
@@ -25,6 +26,9 @@ public class Paginador extends FragmentPagerAdapter {
                 return new Comer();
             case 1:
                 return new Dormir();
+
+             case 2:
+                 return new Programar();
             default:
                 return null;
         }
@@ -32,6 +36,6 @@ public class Paginador extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 }

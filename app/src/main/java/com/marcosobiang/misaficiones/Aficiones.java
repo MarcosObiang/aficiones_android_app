@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.marcosobiang.misaficiones.databinding.ActivityAficionesBinding;
+import com.marcosobiang.misaficiones.fr.aficiones.Comer;
 import com.marcosobiang.misaficiones.ui.fragments.Paginador;
 
 public class Aficiones extends AppCompatActivity {
@@ -30,9 +32,16 @@ public class Aficiones extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAficionesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Paginador paginador = new Paginador(this, getSupportFragmentManager());
+        FragmentManager fm = getSupportFragmentManager();
+        Paginador paginador = new Paginador(this, fm);
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(paginador);
+
+        binding.fab.setOnClickListener(view -> {
+            Intent intent = new Intent(this, PerfilUsuario.class);
+            startActivity(intent);
+
+        });
 
     }
 
