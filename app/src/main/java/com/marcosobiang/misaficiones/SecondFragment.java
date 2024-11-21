@@ -11,9 +11,12 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.marcosobiang.misaficiones.databinding.FragmentSecondBinding;
 
+import java.util.ArrayList;
+
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+    String aficiones="";
 
     @Override
     public View onCreateView(
@@ -28,6 +31,15 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Bundle bundle=getArguments();
+
+        for(String aficion:bundle.keySet()){
+            aficiones+=bundle.getString(aficion)+" ";
+
+        }
+
+        binding.textviewSecond.setText(aficiones);
 
         binding.buttonSecond.setOnClickListener(v ->
                 NavHostFragment.findNavController(SecondFragment.this)
