@@ -13,8 +13,11 @@ import com.marcosobiang.misaficiones.fr.aficiones.Programar;
 
 public class Paginador extends FragmentPagerAdapter {
     private final Context context;
+    private final FragmentManager fm;
     public Paginador(Context context, FragmentManager fm) {
+
         super(fm);
+        this.fm = fm;
         this.context = context;
     }
 
@@ -33,6 +36,8 @@ public class Paginador extends FragmentPagerAdapter {
                 return null;
         }
     }
+
+
 
     @Override
     public int getCount() {
